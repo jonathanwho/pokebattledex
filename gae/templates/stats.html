@@ -1,0 +1,60 @@
+<div id="stats">
+  <div id="top-card" style="background-image:url('/static/images/bgs/{{ pokemon.background_img }}');">
+  <div id="card-left" style="background-image:url('static/images/sprites/{{ pokemon.img_src }}.gif');">
+  </div>
+  <div id="card-right">
+    <h1>{{ pokemon['name'] }}</h1>
+    
+    <p>{{ pokemon['types'] }}</p>
+
+    <p>
+      {% for ability, desc in pokemon['abilities'] %}
+        <strong>{{ ability }}:</strong>
+        {{ desc }}
+        <br/>
+      {% endfor %}
+    </p>
+
+    <div>
+      <table cellspacing="1" cellpadding="1">
+        <tr>
+          <td width="20%"><strong>HP</strong></td>
+          <td width="20%"><strong>Atk</strong></td>
+          <td width="20%"><strong>Def</strong></td>
+          <td width="20%"><strong>SpAtk</strong></td>
+          <td width="20%"><strong>SpDef</strong></td>
+          <td width="20%"><strong>Speed</strong></td>
+        </tr>
+        <tr>
+          <td>{{ pokemon['stats']['hp'] }}</td>
+          <td>{{ pokemon['stats']['atk'] }}</td>
+          <td>{{ pokemon['stats']['def'] }}</td>
+          <td>{{ pokemon['stats']['spatk'] }}</td>
+          <td>{{ pokemon['stats']['spdef'] }}</td>
+          <td>{{ pokemon['stats']['spd'] }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  </div>
+  <div id="damage-taken">
+    <div id="weakness">
+      <strong>Weakness</strong>
+      <ul class="list-unstyled">
+        {% for type in pokemon['damage_taken']['weakness'] %}
+          <li>{{ type|capitalize }}: {{ pokemon['damage_taken']['weakness'][type] }}x</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div id="resistance">
+      <strong>Resistance</strong>
+      <ul class="list-unstyled">
+        {% for type in pokemon['damage_taken']['resistance'] %}
+          <li>{{ type|capitalize }}: {{ pokemon['damage_taken']['resistance'][type] }}x</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    *Does not taken into account the pokémon's abilities.
+  </div>
+</div>

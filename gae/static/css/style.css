@@ -1,0 +1,66 @@
+h1 {
+  margin-top: 0;
+}
+
+.ui-autocomplete {
+  position:relative;
+  cursor:default;
+  width: 250px !important;
+  z-index: 9999 !important;
+}
+
+#stats {
+  width: 100%;
+  max-width: 700px; 
+}
+
+#top-card { 
+  width: 100%; 
+  overflow: hidden;
+}
+
+#card-left, #card-right {
+  width: 50%; 
+  min-height: 250px;
+  float: left; 
+}
+
+#card-left {
+  background-position: center center;
+  background-repeat: no-repeat;
+} 
+
+#card-right {
+  background: white; 
+  opacity: 0.8; 
+  filter:alpha(opacity=80); 
+  padding: 1em;
+  overflow-y: scroll;
+} 
+
+#damage-taken {
+  width: 100%;
+  background: #eee; 
+  padding: 1em;
+}
+
+#weakness, #resistance {
+  width: 50%;
+  float: left;
+}
+
+@media (max-width: 465px) {
+  #top-card { 
+    width: 100%; 
+    max-width: 700px; 
+  }
+
+  #card-left, #card-right {
+    width: 100%; 
+  }
+
+  #card-right {
+    height: inherit;
+    overflow: hidden;
+  }
+} 
